@@ -64,10 +64,26 @@
 		font-family: 'Poppins', system-ui, sans-serif;
 	}
 
+	:focus:not(:focus-visible) {
+		outline: none;
+	}
+
+	:focus-visible {
+		outline: 2px solid hsl(var(--primary));
+		outline-offset: 4px;
+	}
+
 	* {
 		@apply border-border;
 	}
 	body {
 		@apply bg-background text-foreground;
+	}
+}
+
+@layer utilities {
+	.my-min-h-screen-svh {
+		min-height: 100vh;
+		min-height: 100svh;
 	}
 }
