@@ -7,9 +7,11 @@ import { Call } from '@/types/calls';
 
 interface CallItemProps {
 	call: Call;
+	onClickArchive: () => void;
+	onClickUnarchive: () => void;
 }
 
-function CallItem({ call }: CallItemProps) {
+function CallItem({ call, onClickArchive, onClickUnarchive }: CallItemProps) {
 	return (
 		<li
 			key={call.id}
@@ -50,6 +52,7 @@ function CallItem({ call }: CallItemProps) {
 			<Button
 				variant="ghost"
 				className="size-7 self-center p-0 transition-colors duration-300 hover:bg-primary/15"
+				onClick={call.is_archived ? onClickUnarchive : onClickArchive}
 			>
 				<span className="sr-only">{call.is_archived ? 'Unarchive' : 'Archive'}</span>
 				{call.is_archived ? (

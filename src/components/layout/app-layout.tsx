@@ -1,6 +1,7 @@
 import Header from './header';
 import { Outlet } from 'react-router-dom';
 import Navbar from './navbar';
+import { Toaster } from '@/components/ui/sonner';
 
 function AppLayout() {
 	return (
@@ -12,6 +13,7 @@ function AppLayout() {
 				</main>
 				<Navbar />
 			</div>
+			<Toaster richColors />
 		</div>
 	);
 }

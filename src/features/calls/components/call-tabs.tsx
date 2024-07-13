@@ -20,10 +20,18 @@ function CallTabs({ calls }: CallTabsProps) {
 				<CallList calls={calls} />
 			</TabsContent>
 			<TabsContent value="incoming">
-				<CallList calls={incomingCalls} />
+				{incomingCalls.length > 0 ? (
+					<CallList calls={incomingCalls} />
+				) : (
+					<p className="p-4 text-center">No incoming calls</p>
+				)}
 			</TabsContent>
 			<TabsContent value="archived">
-				<CallList calls={archivedCalls} />
+				{archivedCalls.length > 0 ? (
+					<CallList calls={archivedCalls} />
+				) : (
+					<p className="p-4 text-center">No archived calls</p>
+				)}
 			</TabsContent>
 		</Tabs>
 	);

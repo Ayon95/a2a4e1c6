@@ -11,3 +11,5 @@ export type Call = {
 };
 
 export type CallsGetResponseType = Call[];
+
+export type CallUpdateRequestType = Pick<Call, 'is_archived'>;
