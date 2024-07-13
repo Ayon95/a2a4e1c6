@@ -33,7 +33,7 @@ const links = [
 function Navbar() {
 	return (
 		<nav className="border-t border-t-primary/20 p-6">
-			<ul className="flex justify-between gap-1">
+			<ul className="flex flex-wrap justify-between gap-3">
 				{links.map(link => (
 					<li key={link.text}>
 						<NavLink link={link} />

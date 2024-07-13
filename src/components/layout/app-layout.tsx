@@ -4,10 +4,10 @@ import Navbar from './navbar';
 
 function AppLayout() {
 	return (
-		<div className="my-min-h-screen-svh bg-gradient-to-br from-slate-900 to-slate-950 p-4">
-			<div className="mx-auto max-w-96 rounded-md bg-slate-100 shadow-md">
+		<div className="my-min-h-screen-svh flex items-center justify-center bg-gradient-to-br from-slate-900 to-slate-950 p-4">
+			<div className="mx-auto max-w-96 grow rounded-lg bg-slate-100 shadow-md">
 				<Header />
-				<main>
+				<main className="p-6">
 					<Outlet />
 				</main>
 				<Navbar />

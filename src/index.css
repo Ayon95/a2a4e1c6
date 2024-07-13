@@ -11,6 +11,7 @@
 		--popover: 0 0% 100%;
 		--popover-foreground: 222.2 84% 4.9%;
 		--primary: 250 76% 59%;
+		--primary-dark: 251 55% 49%;
 		--primary-foreground: 210 40% 98%;
 		--secondary: 210 40% 96.1%;
 		--secondary-foreground: 222.2 47.4% 11.2%;
@@ -85,5 +86,26 @@
 	.my-min-h-screen-svh {
 		min-height: 100vh;
 		min-height: 100svh;
+	}
+
+	/* Custom scrollbar */
+
+	/* Modern browsers with `scrollbar-*` support */
+	@supports (scrollbar-width: auto) {
+		.my-scrollbar {
+			scrollbar-color: hsl(var(--primary) / 0.3) hsl(231, 39%, 92%);
+			scrollbar-width: thin;
+		}
+	}
+
+	/* Legacy browsers with `::-webkit-scrollbar-*` support */
+	@supports selector(:: -webkit-scrollbar) {
+		.my-scrollbar::-webkit-scrollbar-thumb {
+			background-color: hsl(var(--primary));
+		}
+
+		.my-scrollbar::-webkit-scrollbar {
+			max-width: 10px;
+		}
 	}
 }

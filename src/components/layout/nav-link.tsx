@@ -19,7 +19,7 @@ function NavLink({ link }: NavLinkProps) {
 				isActive && 'text-primary',
 			)}
 		>
-			<Icon aria-hidden="true" className="h-auto w-[1.375rem]" />
+			<Icon aria-hidden="true" className="h-auto w-5" />
 			{text}
 		</a>
 	);
