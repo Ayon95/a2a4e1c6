@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { updateCall } from '../api/update-call';
 import { toast } from 'sonner';
+
+import { updateCall } from '../api/update-call';
 
 export function useUpdateCall() {
 	const queryClient = useQueryClient();
@@ -13,8 +14,8 @@ export function useUpdateCall() {
 			);
 			queryClient.invalidateQueries({ queryKey: ['calls'] });
 		},
-		onError: () => {
-			toast.error('Failed to update call.');
+		onError: error => {
+			toast.error(error.message);
 		},
 	});
 }

@@ -2,16 +2,24 @@ import { BsFillTelephoneInboundFill, BsFillTelephoneOutboundFill } from 'react-i
 import { HiArchiveBoxArrowDown, HiArchiveBoxXMark } from 'react-icons/hi2';
 
 import { Button } from '@/components/ui/button';
+import { useUpdateCall } from '../queries/use-update-call';
 import { cn, formatDate } from '@/lib/utils';
 import { Call } from '@/types/calls';
 
 interface CallItemProps {
 	call: Call;
-	onClickArchive: () => void;
-	onClickUnarchive: () => void;
 }
 
-function CallItem({ call, onClickArchive, onClickUnarchive }: CallItemProps) {
+function CallItem({ call }: CallItemProps) {
+	const updateCallMutation = useUpdateCall();
+
+	function archiveCall(id: string) {
+		updateCallMutation.mutate({ id, data: { is_archived: true } });
+	}
+
+	function unarchiveCall(id: string) {
+		updateCallMutation.mutate({ id, data: { is_archived: false } });
+	}
 	return (
 		<li
 			key={call.id}
@@ -52,7 +60,10 @@ function CallItem({ call, onClickArchive, onClickUnarchive }: CallItemProps) {
 			<Button
 				variant="ghost"
 				className="size-7 self-center p-0 transition-colors duration-300 hover:bg-primary/15"
-				onClick={call.is_archived ? onClickUnarchive : onClickArchive}
+				onClick={
+					call.is_archived ? () => unarchiveCall(call.id) : () => archiveCall(call.id)
+				}
+				disabled={updateCallMutation.isPending}
 			>
 				<span className="sr-only">{call.is_archived ? 'Unarchive' : 'Archive'}</span>
 				{call.is_archived ? (

@@ -1,20 +1,24 @@
 import { CALLS_BASE_URL } from '@/lib/constants';
-import { CallUpdateRequestType } from '@/types/calls';
+import { Call, CallUpdateRequestType } from '@/types/calls';
 
 export async function updateCall({
 	id,
 	data,
 }: {
-	id: string;
+	id: Call['id'];
 	data: CallUpdateRequestType;
 }) {
-	const response = await fetch(`${CALLS_BASE_URL}/${id}`, {
-		method: 'PATCH',
-		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify(data),
-	});
+	try {
+		const response = await fetch(`${CALLS_BASE_URL}/${id}`, {
+			method: 'PATCH',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(data),
+		});
 
-	if (!response.ok) {
+		if (!response.ok) {
+			throw new Error('Failed to update call.');
+		}
+	} catch {
 		throw new Error('Failed to update call.');
 	}
 }
