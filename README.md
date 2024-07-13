@@ -33,7 +33,7 @@ Open a terminal and clone this repo:
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/Ayon95/aircall-frontend-challenge.git
+$ https://github.com/Ayon95/a2a4e1c6.git
 
 # Go into the repository
 $ cd aircall-frontend-challenge
