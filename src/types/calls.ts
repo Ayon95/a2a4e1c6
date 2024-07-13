@@ -1,3 +1,5 @@
+import { CALL_TAB_OPTIONS } from '@/lib/constants';
+
 export type Call = {
 	id: string;
 	direction: 'inbound' | 'outbound';
@@ -10,6 +12,14 @@ export type Call = {
 	created_at: string;
 };
 
+export type CallTabOptions = 'all' | 'incoming' | 'archived';
+
 export type CallsGetResponseType = Call[];
 
 export type CallUpdateRequestType = Pick<Call, 'is_archived'>;
+
+// Type predicates
+
+export function isCallTabOption(value: string): value is CallTabOptions {
+	return CALL_TAB_OPTIONS.has(value as CallTabOptions);
+}
