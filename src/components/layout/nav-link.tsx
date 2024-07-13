@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { IconType } from 'react-icons';
 
 import { cn } from '@/lib/utils';
@@ -12,8 +12,8 @@ function NavLink({ link }: NavLinkProps) {
 	const isActive = location.pathname.includes(href);
 
 	return (
-		<a
-			href={href}
+		<Link
+			to={href}
 			className={cn(
 				'grid justify-items-center gap-1 text-sm duration-300 [transition-property:color,transform] hover:scale-105 hover:text-primary',
 				isActive && 'text-primary',
@@ -21,7 +21,7 @@ function NavLink({ link }: NavLinkProps) {
 		>
 			<Icon aria-hidden="true" className="h-auto w-5" />
 			{text}
-		</a>
+		</Link>
 	);
 }
 
