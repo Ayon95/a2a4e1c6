@@ -7,7 +7,7 @@ export interface CallListProps {
 
 function CallList({ calls }: CallListProps) {
 	return (
-		<ul className="my-scrollbar h-[44vh] divide-y divide-primary/20 overflow-y-scroll pr-3">
+		<ul className="my-scrollbar relative h-[44vh] divide-y divide-primary/20 overflow-y-scroll pr-3">
 			{calls.map(call => (
 				<CallItem key={call.id} call={call} />
 			))}
