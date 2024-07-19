@@ -9,8 +9,18 @@ function CallsPage() {
 	return (
 		<div className="min-h-[60vh]">
 			{isLoading ? (
-				<div className="flex items-center justify-center p-4">
-					<Loader2 className="size-8 animate-spin text-primary" />
+				<div
+					className="flex items-center justify-center p-4"
+					aria-labelledby="loaderText"
+				>
+					<Loader2
+						className="size-8 animate-spin text-primary"
+						aria-labelledby="loaderText"
+						role="img"
+					/>
+					<span className="sr-only" id="loaderText">
+						Fetching calls
+					</span>
 				</div>
 			) : isError ? (
 				<ErrorMessage>

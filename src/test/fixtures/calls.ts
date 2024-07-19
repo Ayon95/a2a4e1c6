@@ -35,3 +35,8 @@ export const calls: CallsGetResponseType = [
 		created_at: '2024-07-04T19:41:57.436Z',
 	},
 ];
+
+export const incomingCalls = calls.filter(call => call.direction === 'inbound');
+export const outgoingCalls = calls.filter(call => call.direction === 'outbound');
+export const archivedCalls = calls.filter(call => call.is_archived);
+export const unarchivedCalls = calls.filter(call => !call.is_archived);

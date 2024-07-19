@@ -1,6 +1,7 @@
 import { CallTabOptions } from '@/types/calls';
 
-export const CALLS_BASE_URL = 'https://aircall-backend.onrender.com/activities';
+export const SERVER_URL = 'https://aircall-backend.onrender.com';
+export const CALLS_BASE_URL = `${SERVER_URL}/activities`;
 export const DEFAULT_LOCALE: Intl.LocalesArgument = 'en-US';
 export const DEFAULT_DATE_FORMAT_OPTIONS: Intl.DateTimeFormatOptions = {
 	month: 'long',

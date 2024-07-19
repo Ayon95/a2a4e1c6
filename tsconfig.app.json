@@ -23,11 +23,13 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
+    "types": ["node", "vitest/globals", "@testing-library/jest-dom"],
+
     /* Import alias */
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "./vitest.setup.ts"]
 }
